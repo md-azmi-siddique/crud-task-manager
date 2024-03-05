@@ -9,6 +9,9 @@ const db = mysql.createConnection({
     database: "crud_schema"
 });
 
+//if Auth error occurs
+// ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'azmi28azmi';
+
 db.connect((err) => {
     if (err) {
         console.error('Database connection failed:', err);

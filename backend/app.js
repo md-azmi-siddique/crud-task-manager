@@ -13,6 +13,7 @@ const app = express()
 app.use(cors())
 app.use(helmet())
 app.use(hpp())
+app.use(express.json())
 
 //limit for request
 const limiter = rateLimit({windowMs: 15 * 60 * 100, max: 300}) 

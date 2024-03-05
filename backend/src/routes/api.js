@@ -6,7 +6,7 @@ const TaskController = require("../controllers/TaskController")
 
 router.get("/", TaskController.homeTest)
 router.get("/tasks", TaskController.tasks)
-router.get("/welcome2", TaskController.welcome2)
+router.post("/tasksPost", TaskController.tasksPost)
 
 
 module.exports=router;
