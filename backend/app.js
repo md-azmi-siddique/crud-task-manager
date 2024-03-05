@@ -12,26 +12,6 @@ app.use(cors())
 app.use(helmet())
 app.use(hpp())
 
-
-//Database Connection
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "azmi28azmi",
-    database: "crud_schema"
-
-})
-
-db.connect((err) => {
-    if (err) {
-        console.log("Error connecting to the database:", err);
-    }
-    else{
-        console.log("Connected to the database");    
-    }
-    
-});
-
 //api Route Connect
 app.use("/api",router)
 
@@ -45,9 +25,6 @@ app.use('*', (req,res)=>{
 })
 
 
-module.exports = {
-    app: app,
-    db: db,
-};
+module.exports = app
 
 
