@@ -1,7 +1,7 @@
 
 // Import the app and db connection
 const app = require("../../app");
-const db = require("../../db")
+const db = require("../config/db")
 
 exports.homeTest = async (req, res) => {
     return res.status(200).json({
