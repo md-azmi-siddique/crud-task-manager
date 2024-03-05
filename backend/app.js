@@ -12,7 +12,17 @@ const db = mysql.createConnection({
 
 })
 
-app.use("/",router)
+db.connect((err) => {
+    if (err) {
+        console.log("Error connecting to the database:", err);
+    }
+    else{
+        console.log("Connected to the database");    
+    }
+    
+});
+
+app.use("/api",router)
 
 
 module.exports = app

@@ -1,17 +1,27 @@
-exports.welcome = async (req,res)=>{
+// Import the app and db connection
+const { app, db } = require("../../app");
+
+exports.homeTest = async (req, res) => {
     return res.status(200).json({
-        data:"welcome"
-    })
+        data: "welcome",
+    });
 }
 
-exports.welcome1 = async (req,res)=>{
-    return res.status(200).json({
-        data:"welcome1"
-    })
+exports.tasks = (req, res) => {
+    const q = "select * from crud";
+
+    // Execute the SQL query using the db connection
+    db.query(q, (err, data) => {
+        if (err) {
+            return res.json("This is an error");
+        } else {
+            return res.json(data);
+        }
+    });
 }
 
-exports.welcome2 = async (req,res)=>{
+exports.welcome2 = async (req, res) => {
     return res.status(200).json({
-        data:"welcome2"
-    })
+        data: "welcome2",
+    });
 }
