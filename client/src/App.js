@@ -4,6 +4,9 @@ import Home from "./pages/Home";
 import Add from "./pages/Add";
 import Update from "./pages/Update";
 
+import "./App.css"
+
+
 function App() {
   return (
     <div className="App">
@@ -11,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/add" element={<Add/>} />
-          <Route path="/update" element={<Update/>} />
+          <Route path="/update/:id" element={<Update/>} />
           {/* Replace <YourComponent /> with the actual component you want to render */}
         </Routes>
       </Router>

@@ -16,9 +16,17 @@ const Home = () => {
                 console.log(err);
             }
         }
-
         fetchAllTasks();
     }, []);
+
+    const handleDelete = async(id) =>{
+        try{
+            await axios.delete(`http://localhost:4000/api/tasksDelete/${id}`)
+            window.location.reload()
+        }catch(err){
+            console.log(err)
+        }
+    }
 
     return (
         <div>
@@ -27,7 +35,9 @@ const Home = () => {
                 {crud.map(crudOp=>(
                     <div className="crud" key={crudOp.id}>
                         <h2>{crudOp.title}</h2>
-                        <p>{crudOp.descriprion}</p>
+                        <p>{crudOp.description}</p>
+                        <button className='delete' onClick={()=>{handleDelete(crudOp.id)}}>Delete</button>
+                        <button className='update'><Link to={`/update/${crudOp.id}`}>Update</Link></button>
                     </div>
                 ))}
             </div>

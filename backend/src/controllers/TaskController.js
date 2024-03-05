@@ -39,3 +39,38 @@ exports.tasksPost = async (req, res) => {
         }
     });
 }
+
+
+exports.tasksDelete= async(req,res) =>{
+    const crudId = req.params.id
+    const q = "DELETE FROM crud where id = ?"
+    db.query(q, [crudId], (err,data)=>{
+        if (err) {
+            console.error("Database error:", err);
+            return res.status(500).json({ error: "Internal Server Error" });
+        } else {
+            // return res.json(data);
+            return res.json("task deleted");
+        }
+    })
+}
+
+exports.tasksUpdate= async(req,res) =>{
+    const crudId = req.params.id
+    const q = "UPDATE crud set `title` = ?, `description` = ?, `coverPic`=? where is = ?";
+    const values = [
+        req.body.title,
+        req.body.description,
+        req.body.coverPic,
+    ]
+
+    db.query(q, [...values,crudId], (err,data)=>{
+        if (err) {
+            console.error("Database error:", err);
+            return res.status(500).json({ error: "Internal Server Error" });
+        } else {
+            // return res.json(data);
+            return res.json("task updated");
+        }
+    })
+}
