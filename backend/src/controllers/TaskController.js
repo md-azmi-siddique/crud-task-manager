@@ -57,13 +57,12 @@ exports.tasksDelete= async(req,res) =>{
 
 exports.tasksUpdate= async(req,res) =>{
     const crudId = req.params.id
-    const q = "UPDATE crud set `title` = ?, `description` = ?, `coverPic`=? where is = ?";
+    const q = "UPDATE crud set `title` = ?, `description` = ?, `coverPic`=? where id = ?";
     const values = [
         req.body.title,
         req.body.description,
         req.body.coverPic,
     ]
-
     db.query(q, [...values,crudId], (err,data)=>{
         if (err) {
             console.error("Database error:", err);
