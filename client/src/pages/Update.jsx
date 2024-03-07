@@ -10,7 +10,7 @@ const Update = () => {
         coverPic:""
     });
 
-    const [error,setError] = useState(false)
+    // const [error,setError] = useState(false)
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -41,7 +41,7 @@ const Update = () => {
             <input class="input input-bordered join-item" placeholder="title" onChange={handleChange} name='title'/>
             <input class="input input-bordered join-item" placeholder="des" onChange={handleChange} name='description'/>
             <input class="input input-bordered join-item" placeholder="des" onChange={handleChange} name='coverPic'/>
-            <button onClick={handleClick}>Update</button>
+            <button className='btn btn-success' onClick={handleClick}>Update</button>
         </div>
     );
 };
