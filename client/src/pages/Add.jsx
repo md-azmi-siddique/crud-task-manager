@@ -34,7 +34,7 @@ const Add = () => {
             <input class="input input-bordered join-item" placeholder="title" onChange={handleChange} name='title'/>
             <input class="input input-bordered join-item" placeholder="des" onChange={handleChange} name='description'/>
             <input class="input input-bordered join-item" placeholder="des" onChange={handleChange} name='coverPic'/>
-            <button onClick={handleClick}>Add</button>
+            <button className='btn btn-warning' onClick={handleClick}>Add</button>
         </div>
     );
 };
